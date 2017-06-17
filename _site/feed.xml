@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-06-18T08:45:51+09:00</updated><id>http://localhost:4000/</id><title type="html">17billion</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</subtitle><entry><title type="html">Github와 연동하여 Jekyll 프로젝트 호스팅하기</title><link href="http://localhost:4000/jekyll/github/2017/05/27/jekyll_github.html" rel="alternate" type="text/html" title="Github와 연동하여 Jekyll 프로젝트 호스팅하기" /><published>2017-05-27T09:51:42+09:00</published><updated>2017-05-27T09:51:42+09:00</updated><id>http://localhost:4000/jekyll/github/2017/05/27/jekyll_github</id><content type="html" xml:base="http://localhost:4000/jekyll/github/2017/05/27/jekyll_github.html">&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Jekyll&lt;/strong&gt;과 &lt;strong&gt;Github&lt;/strong&gt;를 연동하여 자신의 프로젝트 페이지나 블로그, 웹사이트를 무료로 GitHub에 호스팅을 할 수 있습니다. &lt;br /&gt;
+ 이번 글에서는 지난번에 생성한 로컬의 Jekyll 프로젝트를 Github를 이용하여 호스팅하는 것까지 알려드리겠습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;아래 설명 중 Command Console은 대부분 Git Bash를 설치하여 진행했으며 &lt;br /&gt;
+$ .. 부분의 명령어를 실행하여 진행해주시면 됩니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;1-github-가입-httpsgithubcom&quot;&gt;1. github 가입 (&lt;a href=&quot;https://github.com/&quot;&gt;https://github.com/&lt;/a&gt;)&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/images/Jekyll_github/1_signup_github.jpg&quot; alt=&quot;1_signup_github&quot; /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;1-2-public-repository-선택-후-continue-클릭-private-repository는-유로&quot;&gt;1-2. public repository 선택 후 Continue 클릭 (private repository는 유로)&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/images/Jekyll_github/1_2_signup_github.jpg&quot; alt=&quot;1_2_signup_github&quot; /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;1-3-사용자-정보-기입-기입을-원하지-않을-경우-아래-skip-the-step-클릭&quot;&gt;1-3. 사용자 정보 기입 (기입을 원하지 않을 경우 아래 skip the step 클릭)&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/images/Jekyll_github/1_3_signup_github.jpg&quot; alt=&quot;1_3_signup_github&quot; /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;1-4-가입-완료&quot;&gt;1-4. 가입 완료&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/images/Jekyll_github/1_4_signup_github.jpg&quot; alt=&quot;1_4_signup_github&quot; /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;1-5-가입할때-입력한-e-mail에-로그인하여-인증-verify-email-address-클릭&quot;&gt;1-5. 가입할때 입력한 E-mail에 로그인하여 인증 (Verify email address 클릭)&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/images/Jekyll_github/1_5_signup_github_email.jpg&quot; alt=&quot;1_5_signup_github_email&quot; /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;2-repository-생성&quot;&gt;2. repository 생성&lt;/h4&gt;
+&lt;h5 id=&quot;repository-name을-원하는-name으로-입력-후-create-repository-클릭-private는-유료&quot;&gt;repository name을 원하는 name으로 입력 후 Create repository 클릭 (private는 유료)&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;/images/Jekyll_github/2_make_github_repository.jpg&quot; alt=&quot;2_make_github_repository&quot; /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;3-로컬에-있는-jekyll-프로젝트를-생성한-github-repository로-commit-후-push&quot;&gt;3. 로컬에 있는 Jekyll 프로젝트를 생성한 github repository로 commit 후 push&lt;/h4&gt;
+&lt;h5 id=&quot;중간에-인증을-위해-로그인-화면이-나타나는데-가입한-정보로-로그인해주면-됩니다&quot;&gt;중간에 인증을 위해 로그인 화면이 나타나는데 가입한 정보로 로그인해주면 됩니다.&lt;/h5&gt;
+&lt;h5 id=&quot;저는-jekyll-프로젝트를-jekyll_site17billion에-생성했었습니다-아래-과정은-각자-생성한-프로젝트에서-진행해주시면-됩니다&quot;&gt;저는 Jekyll 프로젝트를 Jekyll_site/17billion에 생성했었습니다. 아래 과정은 각자 생성한 프로젝트에서 진행해주시면 됩니다.&lt;/h5&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;$ cd /c/Jekyll_site/17billion
+$ git init&lt;/p&gt;
+  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Initialized empty Git repository in C:/Jekyll_site/17billion/.git/
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+  &lt;p&gt;$ git remote add origin https://github.com/17billion/17billion.github.io.git &lt;br /&gt;
+$ echo “# 17billion” » README.md &lt;br /&gt;
+$ git init&lt;/p&gt;
+  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Reinitialized existing Git repository in C:/Jekyll_site/17billion/.git/
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+  &lt;p&gt;$ git add README.md&lt;/p&gt;
+  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory.
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+  &lt;p&gt;$ git commit -m “first commit”&lt;/p&gt;
+  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[master (root-commit) 528fa52] first commit
+ 8 files changed, 174 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 Gemfile
+ create mode 100644 Gemfile.lock
+ create mode 100644 README.md
+ create mode 100644 _config.yml
+ create mode 100644 _posts/2017-05-03-welcome-to-Jekyll.markdown
+ create mode 100644 about.md
+ create mode 100644 index.md
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+  &lt;p&gt;$ git remote add origin https://github.com/17billion/17billion.git&lt;/p&gt;
+  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fatal: remote origin already exists.
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+  &lt;p&gt;$ git push -u origin master&lt;/p&gt;
+  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Counting objects: 11, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (11/11), 3.48 KiB | 0 bytes/s, done.
+Total 11 (delta 0), reused 0 (delta 0)
+Branch master set up to track remote branch master from origin.
+To https://github.com/17billion/17billion.git
+ * [new branch]      master -&amp;gt; master
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+  &lt;h5 id=&quot;아래는-제가-진행했을때의-git-bash-화면입니다-중간에-인증을-위해-로그인을-하는-과정이-있습니다&quot;&gt;아래는 제가 진행했을때의 git bash 화면입니다. (중간에 인증을 위해 로그인을 하는 과정이 있습니다.)&lt;/h5&gt;
+  &lt;p&gt;&lt;img src=&quot;/images/Jekyll_github/3_github_Jekyll_commit.jpg&quot; alt=&quot;3_github_Jekyll_commit&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;3-push-된-jekyll-프로젝트-확인&quot;&gt;3. push 된 Jekyll 프로젝트 확인&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/images/Jekyll_github/3_2_github_Jekyll_commit.jpg&quot; alt=&quot;3_2_github_Jekyll_commit&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;4-호스팅된-주소로-접속확인-httpsownergithubiorepository-name&quot;&gt;4. 호스팅된 주소로 접속확인 (https://{Owner}.github.io/{Repository Name})&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/images/Jekyll_github/4_end_github_Jekyll_conn.jpg&quot; alt=&quot;4_end_github_Jekyll_conn&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Jekyll과 Github를 연동하여 자신의 프로젝트 페이지나 블로그, 웹사이트를 무료로 GitHub에 호스팅을 할 수 있습니다. 이번 글에서는 지난번에 생성한 로컬의 Jekyll 프로젝트를 Github를 이용하여 호스팅하는 것까지 알려드리겠습니다. 아래 설명 중 Command Console은 대부분 Git Bash를 설치하여 진행했으며 $ .. 부분의 명령어를 실행하여 진행해주시면 됩니다.</summary></entry><entry><title type="html">Jekyll 설치 및 로컬에 띄우기</title><link href="http://localhost:4000/jekyll/install/2017/05/27/install-a-jekyll.html" rel="alternate" type="text/html" title="Jekyll 설치 및 로컬에 띄우기" /><published>2017-05-27T09:51:42+09:00</published><updated>2017-05-27T09:51:42+09:00</updated><id>http://localhost:4000/jekyll/install/2017/05/27/install-a-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/install/2017/05/27/install-a-jekyll.html">&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Jekyll&lt;/strong&gt;은 원본 텍스트 파일을 Markdown 등의 변환기와 Liquid 렌더러를 통해 가공하여 웹 서버에 게시할 수 있는 정적 웹사이트 개설을 가능하게 만듭니다. &lt;br /&gt;
+ &lt;strong&gt;Jekyll&lt;/strong&gt;을 이용해서 자신의 프로젝트 페이지나 블로그, 웹사이트를 무료로 GitHub에 호스팅을 할 수 있습니다.
+ 이번 글에서는 Jekyll을 로컬 PC에 설치 후 로컬서버에 띄우는 것 까지 진행해보겠습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;아래 설명 중 Command Console은 대부분 Git Bash를 설치하여 진행했으며 &lt;br /&gt;
+$ .. 부분의 명령어를 실행하여 진행해주시면 됩니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;1-ruby-설치-httpsrubyinstallerorgdownloads&quot;&gt;1. ruby 설치 (&lt;a href=&quot;https://rubyinstaller.org/downloads/&quot;&gt;https://rubyinstaller.org/downloads/&lt;/a&gt;)&lt;/h4&gt;
+&lt;p&gt;&lt;em&gt;jekyll은 ruby 기반으로 돌아가기때문에 설치가 필요합니다. RubyInstallers에서 자신의 사양에 맞게 다운로드 하시면 됩니다.&lt;/em&gt;
+&lt;img src=&quot;/images/install_a_jekyll/1_ruby_site.jpg&quot; alt=&quot;1_ruby_site&quot; /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;1-2-설치폴더-설정&quot;&gt;1-2. 설치폴더 설정&lt;/h4&gt;
+
+&lt;p&gt;&lt;em&gt;다운로드 받은 파일을 실행시키면 아래와 같은 화면이 나옵니다. 설치폴더를 설정 및 체크박스 체크 후 Install 버튼을 클릭합니다. 아래 Add Ruby executables to your PATH를 체크하면 어디서든디 Ruby 실행이 가능합니다.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/install_a_jekyll/2_install_a_ruby.jpg&quot; alt=&quot;2_install_a_ruby&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;2-development-kit-설치-httpsrubyinstallerorgdownloads&quot;&gt;2. Development Kit 설치 (&lt;a href=&quot;https://rubyinstaller.org/downloads/&quot;&gt;https://rubyinstaller.org/downloads/&lt;/a&gt;)&lt;/h4&gt;
+&lt;p&gt;Ruby를 다운 받았던 웹 페이지를 다시 접속해서 Development Kit을 다운 받은 후 실행을 시켜주시면 됩니다. (C:\RubyDevkit)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/install_a_jekyll/3_Development Kit.jpg&quot; alt=&quot;3_Development Kit&quot; /&gt;
+&lt;img src=&quot;/images/install_a_jekyll/3_1_install_a Development_Kit.jpg&quot; alt=&quot;3_1_install_a Development_Kit&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;2-2-development-kit-초기화-git-bash&quot;&gt;2-2. Development Kit 초기화 (Git Bash)&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;$ cd C:\RubyDevkit &lt;br /&gt;
+$ ruby dk.rb init&lt;/p&gt;
+  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[INFO] found RubyInstaller v2.3.3 at C:/Ruby23-x64
+Initialization complete! Please review and modify the auto-generated
+'config.yml' file to ensure it contains the root directories to all
+of the installed Rubies you want enhanced by the DevKit.
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+  &lt;p&gt;$ ruby dk.rb instal&lt;/p&gt;
+  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[INFO] Skipping existing gem override for 'C:/Ruby23-x64'
+[INFO] Installing 'C:/Ruby23-x64/lib/ruby/site_ruby/devkit.rb'
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;3-jekyll-설치-git-bash&quot;&gt;3. Jekyll 설치 (Git Bash)&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;$ cd C:\RubyDevkit &lt;br /&gt;
+$ gem install jekyll &lt;br /&gt;&lt;/p&gt;
+  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Successfully installed jekyll-3.4.3
+Parsing documentation for jekyll-3.4.3
+Done installing documentation for jekyll after 2 seconds
+1 gem installed
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+  &lt;p&gt;$ gem install rouge&lt;/p&gt;
+  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Successfully installed rouge-2.0.7
+Parsing documentation for rouge-2.0.7
+Done installing documentation for rouge after 5 seconds
+1 gem installed
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;4-python-다운로드-및-실행-httpspythonorgdownloads&quot;&gt;4. Python 다운로드 및 실행 (&lt;a href=&quot;https://python.org/downloads/&quot;&gt;https://python.org/downloads/&lt;/a&gt;)&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/images/install_a_jekyll/6_install_a_python.jpg&quot; alt=&quot;6_install_a_python&quot; /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;4-2-python-윈도우-환경설정&quot;&gt;4-2. Python 윈도우 환경설정&lt;/h4&gt;
+&lt;h5 id=&quot;환경변수에-cpython27cpython27scripts를-추가해주시면-됩니다&quot;&gt;환경변수에 &lt;em&gt;C:\Python27;C:\Python27\Scripts;&lt;/em&gt;를 추가해주시면 됩니다.&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;/images/install_a_jekyll/7_set_a_python_env.jpg&quot; alt=&quot;7_set_a_python_env&quot; /&gt;
+&lt;img src=&quot;/images/install_a_jekyll/8_set_a_python_env_2.jpg&quot; alt=&quot;8_set_a_python_env_2&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;5-pygments-설치-window-cmd&quot;&gt;5. Pygments 설치 (Window cmd)&lt;/h4&gt;
+&lt;h5 id=&quot;저는-git-bash에서-설치가-안되어-window-cmd에서-pygments-설치를-진행했습니다&quot;&gt;저는 git bash에서 설치가 안되어 Window cmd에서 Pygments 설치를 진행했습니다.&lt;/h5&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;C:\Users\LEE&amp;gt;pip install Pygments&lt;/p&gt;
+  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Collecting Pygments
+  Using cached Pygments-2.2.0-py2.py3-none-any.whl
+Installing collected packages: Pygments
+Successfully installed Pygments-2.2.0
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;6-jekyll-생성-및-실행&quot;&gt;6. Jekyll 생성 및 실행&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;$ mkdir C:\jekyll_site &lt;br /&gt;
+$ cd jekyll_site/ &lt;br /&gt;
+$ jekyll&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;A subcommand is required.
+jekyll 3.4.3 -- Jekyll is a blog-aware, static site generator in Ruby
+
+Usage:
+
+  jekyll &amp;lt;subcommand&amp;gt; [options]
+
+Options:
+        -s, --source [DIR]  Source directory (defaults to ./)
+        -d, --destination [DIR]  Destination directory (defaults to ./_site)
+            --safe         Safe mode (defaults to false)
+        -p, --plugins PLUGINS_DIR1[,PLUGINS_DIR2[,...]]  Plugins directory (defaults to ./_plugins)
+            --layouts DIR  Layouts directory (defaults to ./_layouts)
+            --profile      Generate a Liquid rendering profile
+        -h, --help         Show this message
+        -v, --version      Print the name and version
+        -t, --trace        Show the full backtrace when an error occurs
+
+Subcommands:
+  docs
+  import
+  build, b              Build your site
+  clean                 Clean the site (removes site output and metadata file) without building.
+  doctor, hyde          Search site and print specific deprecation warnings
+  help                  Show the help message, optionally for a given subcommand.
+  new                   Creates a new Jekyll site scaffold in PATH
+  new-theme             Creates a new Jekyll theme scaffold
+  serve, server, s      Serve your site locally
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;7-jekyll-로컬에-띄우기&quot;&gt;7. Jekyll 로컬에 띄우기&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;$ cd C:\jekyll_site &lt;br /&gt;
+$ jekyll serve&lt;/p&gt;
+  &lt;h5 id=&quot;모든-과정이-진행되었으면-아래처럼-결과가-나옵니다&quot;&gt;모든 과정이 진행되었으면 아래처럼 결과가 나옵니다.&lt;/h5&gt;
+  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Configuration file: none
+Configuration file: none
+            Source: C:/jekyll_site
+       Destination: C:/jekyll_site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+                    done in 0.025 seconds.
+  Please add the following to your Gemfile to avoid polling for changes:
+    gem 'wdm', '&amp;gt;= 0.1.0' if Gem.win_platform?
+ Auto-regeneration: enabled for 'C:/jekyll_site'
+Configuration file: none
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+  &lt;p&gt;http://127.0.0.1:4000/ 접속 하면 아래와 같은 화면이 나옵니다.
+&lt;img src=&quot;/images/install_a_jekyll/13_jekyll_local.jpg&quot; alt=&quot;13_jekyll_local&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;8-jekyll-개인-프로젝트-생성-및-로컬에-띄우기&quot;&gt;8. Jekyll 개인 프로젝트 생성 및 로컬에 띄우기&lt;/h4&gt;
+&lt;h5 id=&quot;제-프로젝트-명은-17billion로-했습니다-이-부분은-편의에-맞게-변경하시면-됩니다&quot;&gt;제 프로젝트 명은 17billion로 했습니다. 이 부분은 편의에 맞게 변경하시면 됩니다.&lt;/h5&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;$ cd C:\jekyll_site &lt;br /&gt;
+$ jekyll new 17billion&lt;/p&gt;
+  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Running bundle install in C:/jekyll_site/17billion...
+  Bundler: Fetching gem metadata from https://rubygems.org/............
+  Bundler: Fetching version metadata from https://rubygems.org/...
+  Bundler: Fetching dependency metadata from https://rubygems.org/..
+  Bundler: Resolving dependencies...
+  Bundler: Using public_suffix 2.0.5
+  Bundler: Using colorator 1.1.0
+  Bundler: Using ffi 1.9.18 (x64-mingw32)
+  Bundler: Using forwardable-extended 2.6.0
+  Bundler: Using sass 3.4.23
+  Bundler: Using rb-fsevent 0.9.8
+  Bundler: Using kramdown 1.13.2
+  Bundler: Using liquid 3.0.6
+  Bundler: Using mercenary 0.3.6
+  Bundler: Using rouge 1.11.1
+  Bundler: Using safe_yaml 1.0.4
+  Bundler: Using thread_safe 0.3.6
+  Bundler: Using bundler 1.14.3
+  Bundler: Using addressable 2.5.1
+  Bundler: Using rb-inotify 0.9.8
+  Bundler: Using pathutil 0.14.0
+  Bundler: Using jekyll-sass-converter 1.5.0
+  Bundler: Using tzinfo 1.2.3
+  Bundler: Using listen 3.0.8
+  Bundler: Using tzinfo-data 1.2017.2
+  Bundler: Using jekyll-watch 1.5.0
+  Bundler: Using jekyll 3.4.3
+  Bundler: Using jekyll-feed 0.9.2
+  Bundler: Using minima 2.1.1
+  Bundler: Bundle complete! 4 Gemfile dependencies, 24 gems now installed.
+  Bundler: Use `bundle show [gemname]` to see where a bundled gem is installed.
+New jekyll site installed in C:/jekyll_site/17billion.
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+  &lt;p&gt;$ ls&lt;/p&gt;
+  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;_site/  17billion/
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+  &lt;p&gt;$ cd 17billion/ &lt;br /&gt;
+$ jekyll serve&lt;/p&gt;
+  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Configuration file: C:/jekyll_site/17billion/_config.yml
+Configuration file: C:/jekyll_site/17billion/_config.yml
+            Source: C:/jekyll_site/17billion
+       Destination: C:/jekyll_site/17billion/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+                    done in 0.881 seconds.
+  Please add the following to your Gemfile to avoid polling for changes:
+    gem 'wdm', '&amp;gt;= 0.1.0' if Gem.win_platform?
+ Auto-regeneration: enabled for 'C:/jekyll_site/17billion'
+Configuration file: C:/jekyll_site/17billion/_config.yml
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+  &lt;p&gt;위 과정을 진행 후 다시 http://127.0.0.1:4000/ 접속 하면 아래와 같이 생성한 Jekyll 화면이 나옵니다.
+&lt;img src=&quot;/images/install_a_jekyll/16_jekyll_site_local.jpg&quot; alt=&quot;16_jekyll_site_local&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name></name></author><summary type="html">Jekyll은 원본 텍스트 파일을 Markdown 등의 변환기와 Liquid 렌더러를 통해 가공하여 웹 서버에 게시할 수 있는 정적 웹사이트 개설을 가능하게 만듭니다. Jekyll을 이용해서 자신의 프로젝트 페이지나 블로그, 웹사이트를 무료로 GitHub에 호스팅을 할 수 있습니다. 이번 글에서는 Jekyll을 로컬 PC에 설치 후 로컬서버에 띄우는 것 까지 진행해보겠습니다. 아래 설명 중 Command Console은 대부분 Git Bash를 설치하여 진행했으며 $ .. 부분의 명령어를 실행하여 진행해주시면 됩니다.</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2017/05/03/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-05-03T09:51:42+09:00</published><updated>2017-05-03T09:51:42+09:00</updated><id>http://localhost:4000/jekyll/update/2017/05/03/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/05/03/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
